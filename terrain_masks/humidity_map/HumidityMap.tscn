@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnsxixvr7w7bd"]
+
+[ext_resource type="Script" path="res://terrain_masks/humidity_map/HumidityMap.gd" id="1_1s5vm"]
+[ext_resource type="Shader" path="res://terrain_masks/humidity_map/HumidityMap.gdshader" id="1_rum2v"]
+[ext_resource type="Texture2D" uid="uid://2wygdqfq5ynp" path="res://terrain_masks/humidity_map/humidity_map_noise_texture.tres" id="3_d5r18"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pt4q8"]
+shader = ExtResource("1_rum2v")
+shader_parameter/noise = ExtResource("3_d5r18")
+
+[node name="HumidityMap" type="Node2D"]
+script = ExtResource("1_1s5vm")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+material = SubResource("ShaderMaterial_pt4q8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

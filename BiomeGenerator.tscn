@@ -1,0 +1,210 @@
+[gd_scene load_steps=8 format=3 uid="uid://c02kiknoormso"]
+
+[ext_resource type="Shader" path="res://BiomeGenerator.gdshader" id="1_8ssn7"]
+[ext_resource type="Script" path="res://BiomeGenerator.gd" id="1_gp4od"]
+[ext_resource type="Texture2D" uid="uid://csbk1ntvvsqqi" path="res://Images/HumidityMap.tres" id="2_qr411"]
+[ext_resource type="Texture2D" path="res://Images/RainfallMap.tres" id="3_20i74"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dsju3"]
+shader = ExtResource("1_8ssn7")
+shader_parameter/display_biome_colors = false
+shader_parameter/biome_weight_image = 0
+shader_parameter/lake_color = Vector3(0, 0, 1)
+shader_parameter/swamp_color = Vector3(0, 0.21, 0.21)
+shader_parameter/wetlands_color = Vector3(0, 0.55, 0.66)
+shader_parameter/rainforest_color = Vector3(0, 0.53, 0.23)
+shader_parameter/dryforest_color = Vector3(0.24, 0.35, 0)
+shader_parameter/grasslands_color = Vector3(0.74, 0.61, 0)
+shader_parameter/tundra_color = Vector3(0.9, 0.43, 0.38)
+shader_parameter/desert_color = Vector3(0.81, 0.38, 0)
+shader_parameter/hum_desert_tundra_flag = 0.0
+shader_parameter/hum_tundra_grass_flag = 0.33
+shader_parameter/hum_grass_dryf_flag = 0.55
+shader_parameter/hum_dryf_rainf_flag = 0.77
+shader_parameter/hum_wetland_swamp_flag = 0.42
+shader_parameter/hum_swamp_lake_flag = 0.6
+shader_parameter/rain_water_biome_flag = 0.57
+shader_parameter/desert_rf_min = 0.0
+shader_parameter/desert_rf_max = 0.77
+shader_parameter/desert_hum_min = 0.0
+shader_parameter/desert_hum_max = 0.22
+shader_parameter/tundra_rf_min = 0.0
+shader_parameter/tundra_rf_max = 0.77
+shader_parameter/tundra_hum_min = 0.22
+shader_parameter/tundra_hum_max = 0.33
+shader_parameter/grasslands_rf_min = 0.0
+shader_parameter/grasslands_rf_max = 0.77
+shader_parameter/grasslands_hum_min = 0.33
+shader_parameter/grasslands_hum_max = 0.55
+shader_parameter/dryforest_rf_min = 0.0
+shader_parameter/dryforest_rf_max = 0.77
+shader_parameter/dryforest_hum_min = 0.55
+shader_parameter/dryforest_hum_max = 0.77
+shader_parameter/rainforest_rf_min = 0.0
+shader_parameter/rainforest_rf_max = 0.77
+shader_parameter/rainforest_hum_min = 0.77
+shader_parameter/rainforest_hum_max = 1.0
+shader_parameter/wetlands_rf_min = 0.77
+shader_parameter/wetlands_rf_max = 1.0
+shader_parameter/wetlands_hum_min = 0.0
+shader_parameter/wetlands_hum_max = 0.55
+shader_parameter/swamp_rf_min = 0.77
+shader_parameter/swamp_rf_max = 1.0
+shader_parameter/swamp_hum_min = 0.55
+shader_parameter/swamp_hum_max = 0.77
+shader_parameter/lake_rf_min = 0.77
+shader_parameter/lake_rf_max = 1.0
+shader_parameter/lake_hum_min = 0.77
+shader_parameter/lake_hum_max = 1.0
+shader_parameter/blend_radius = 0.18
+shader_parameter/rainfall_map = ExtResource("3_20i74")
+shader_parameter/humidity_map = ExtResource("2_qr411")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05st7"]
+shader = ExtResource("1_8ssn7")
+shader_parameter/display_biome_colors = false
+shader_parameter/biome_weight_image = 1
+shader_parameter/lake_color = Vector3(0, 0, 1)
+shader_parameter/swamp_color = Vector3(0, 0.21, 0.21)
+shader_parameter/wetlands_color = Vector3(0, 0.55, 0.66)
+shader_parameter/rainforest_color = Vector3(0, 0.53, 0.23)
+shader_parameter/dryforest_color = Vector3(0.24, 0.35, 0)
+shader_parameter/grasslands_color = Vector3(0.74, 0.61, 0)
+shader_parameter/tundra_color = Vector3(0.9, 0.43, 0.38)
+shader_parameter/desert_color = Vector3(0.81, 0.38, 0)
+shader_parameter/hum_desert_tundra_flag = 0.0
+shader_parameter/hum_tundra_grass_flag = 0.33
+shader_parameter/hum_grass_dryf_flag = 0.55
+shader_parameter/hum_dryf_rainf_flag = 0.77
+shader_parameter/hum_wetland_swamp_flag = 0.42
+shader_parameter/hum_swamp_lake_flag = 0.6
+shader_parameter/rain_water_biome_flag = 0.57
+shader_parameter/desert_rf_min = 0.0
+shader_parameter/desert_rf_max = 0.77
+shader_parameter/desert_hum_min = 0.0
+shader_parameter/desert_hum_max = 0.22
+shader_parameter/tundra_rf_min = 0.0
+shader_parameter/tundra_rf_max = 0.77
+shader_parameter/tundra_hum_min = 0.22
+shader_parameter/tundra_hum_max = 0.33
+shader_parameter/grasslands_rf_min = 0.0
+shader_parameter/grasslands_rf_max = 0.77
+shader_parameter/grasslands_hum_min = 0.33
+shader_parameter/grasslands_hum_max = 0.55
+shader_parameter/dryforest_rf_min = 0.0
+shader_parameter/dryforest_rf_max = 0.77
+shader_parameter/dryforest_hum_min = 0.55
+shader_parameter/dryforest_hum_max = 0.77
+shader_parameter/rainforest_rf_min = 0.0
+shader_parameter/rainforest_rf_max = 0.77
+shader_parameter/rainforest_hum_min = 0.77
+shader_parameter/rainforest_hum_max = 1.0
+shader_parameter/wetlands_rf_min = 0.77
+shader_parameter/wetlands_rf_max = 1.0
+shader_parameter/wetlands_hum_min = 0.0
+shader_parameter/wetlands_hum_max = 0.55
+shader_parameter/swamp_rf_min = 0.77
+shader_parameter/swamp_rf_max = 1.0
+shader_parameter/swamp_hum_min = 0.55
+shader_parameter/swamp_hum_max = 0.77
+shader_parameter/lake_rf_min = 0.77
+shader_parameter/lake_rf_max = 1.0
+shader_parameter/lake_hum_min = 0.77
+shader_parameter/lake_hum_max = 1.0
+shader_parameter/blend_radius = 0.18
+shader_parameter/rainfall_map = ExtResource("3_20i74")
+shader_parameter/humidity_map = ExtResource("2_qr411")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4soe"]
+shader = ExtResource("1_8ssn7")
+shader_parameter/display_biome_colors = false
+shader_parameter/biome_weight_image = 2
+shader_parameter/lake_color = Vector3(0, 0, 1)
+shader_parameter/swamp_color = Vector3(0, 0.21, 0.21)
+shader_parameter/wetlands_color = Vector3(0, 0.55, 0.66)
+shader_parameter/rainforest_color = Vector3(0, 0.53, 0.23)
+shader_parameter/dryforest_color = Vector3(0.24, 0.35, 0)
+shader_parameter/grasslands_color = Vector3(0.74, 0.61, 0)
+shader_parameter/tundra_color = Vector3(0.9, 0.43, 0.38)
+shader_parameter/desert_color = Vector3(0.81, 0.38, 0)
+shader_parameter/hum_desert_tundra_flag = 0.0
+shader_parameter/hum_tundra_grass_flag = 0.33
+shader_parameter/hum_grass_dryf_flag = 0.55
+shader_parameter/hum_dryf_rainf_flag = 0.77
+shader_parameter/hum_wetland_swamp_flag = 0.42
+shader_parameter/hum_swamp_lake_flag = 0.6
+shader_parameter/rain_water_biome_flag = 0.57
+shader_parameter/desert_rf_min = 0.0
+shader_parameter/desert_rf_max = 0.77
+shader_parameter/desert_hum_min = 0.0
+shader_parameter/desert_hum_max = 0.22
+shader_parameter/tundra_rf_min = 0.0
+shader_parameter/tundra_rf_max = 0.77
+shader_parameter/tundra_hum_min = 0.22
+shader_parameter/tundra_hum_max = 0.33
+shader_parameter/grasslands_rf_min = 0.0
+shader_parameter/grasslands_rf_max = 0.77
+shader_parameter/grasslands_hum_min = 0.33
+shader_parameter/grasslands_hum_max = 0.55
+shader_parameter/dryforest_rf_min = 0.0
+shader_parameter/dryforest_rf_max = 0.77
+shader_parameter/dryforest_hum_min = 0.55
+shader_parameter/dryforest_hum_max = 0.77
+shader_parameter/rainforest_rf_min = 0.0
+shader_parameter/rainforest_rf_max = 0.77
+shader_parameter/rainforest_hum_min = 0.77
+shader_parameter/rainforest_hum_max = 1.0
+shader_parameter/wetlands_rf_min = 0.77
+shader_parameter/wetlands_rf_max = 1.0
+shader_parameter/wetlands_hum_min = 0.0
+shader_parameter/wetlands_hum_max = 0.55
+shader_parameter/swamp_rf_min = 0.77
+shader_parameter/swamp_rf_max = 1.0
+shader_parameter/swamp_hum_min = 0.55
+shader_parameter/swamp_hum_max = 0.77
+shader_parameter/lake_rf_min = 0.77
+shader_parameter/lake_rf_max = 1.0
+shader_parameter/lake_hum_min = 0.77
+shader_parameter/lake_hum_max = 1.0
+shader_parameter/blend_radius = 0.18
+shader_parameter/rainfall_map = ExtResource("3_20i74")
+shader_parameter/humidity_map = ExtResource("2_qr411")
+
+[node name="BiomeGenerator" type="Node2D"]
+script = ExtResource("1_gp4od")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1024, 1024)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+material = SubResource("ShaderMaterial_dsju3")
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="ColorRect2" type="ColorRect" parent="SubViewport2"]
+material = SubResource("ShaderMaterial_05st7")
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="SubViewport3" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="ColorRect3" type="ColorRect" parent="SubViewport3"]
+material = SubResource("ShaderMaterial_r4soe")
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8owt287pum1o"]
+
+[ext_resource type="Shader" path="res://terrain_masks/rainfall_map/RainfallMap.gdshader" id="1_tmatg"]
+[ext_resource type="Script" path="res://terrain_masks/rainfall_map/RainfallMap.gd" id="1_x2yy3"]
+[ext_resource type="Texture2D" uid="uid://behe51mbbp140" path="res://terrain_masks/rainfall_map/rainfall_map_noise_texture.tres" id="2_7p4j3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhbqk"]
+shader = ExtResource("1_tmatg")
+shader_parameter/noise = ExtResource("2_7p4j3")
+
+[node name="RainfallMap" type="Node2D"]
+script = ExtResource("1_x2yy3")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+material = SubResource("ShaderMaterial_mhbqk")
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

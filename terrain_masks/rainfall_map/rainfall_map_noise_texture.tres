@@ -1,0 +1,6 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://behe51mbbp140"]
+
+[ext_resource type="FastNoiseLite" uid="uid://dernwnvk75eqs" path="res://terrain_masks/rainfall_map/rainfall_map_noise.tres" id="1_q34ku"]
+
+[resource]
+noise = ExtResource("1_q34ku")
